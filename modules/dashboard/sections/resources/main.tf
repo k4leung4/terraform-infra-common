@@ -100,50 +100,44 @@ locals {
   // N columns, unit width each  ([0, unit, 2 * unit, ...])
   col = range(0, local.columns * local.unit, local.unit)
 
-  tiles = [{
-    yPos   = 0,
-    xPos   = local.col[0],
-    height = local.unit,
-    width  = module.width.size,
-    widget = module.oom_alert.widget,
-    },
+  tiles = [
     {
-      yPos   = local.unit,
+      yPos   = 0,
       xPos   = local.col[0],
       height = local.unit,
       width  = local.unit,
       widget = module.cpu_utilization.widget,
     },
     {
-      yPos   = local.unit,
+      yPos   = 0,
       xPos   = local.col[1],
       height = local.unit,
       width  = local.unit,
       widget = module.memory_utilization.widget,
     },
     {
-      yPos   = local.unit,
+      yPos   = 0,
       xPos   = local.col[2],
       height = local.unit,
       width  = local.unit,
       widget = module.instance_count.widget,
     },
     {
-      yPos   = local.unit * 2,
+      yPos   = local.unit,
       xPos   = local.col[0],
       height = local.unit,
       width  = local.unit,
       widget = module.startup_latency.widget,
     },
     {
-      yPos   = local.unit * 2,
+      yPos   = local.unit,
       xPos   = local.col[1],
       height = local.unit,
       width  = local.unit,
       widget = module.sent_bytes.widget,
     },
     {
-      yPos   = local.unit * 2,
+      yPos   = local.unit,
       xPos   = local.col[2],
       height = local.unit,
       width  = local.unit,
